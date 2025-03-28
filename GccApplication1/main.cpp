@@ -2,14 +2,24 @@
 #include <avr\io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include <stdlib.h>
 #include "docycle.h"
 #include "IExecutable.h"
 
 
 
+void operator delete(void* ptr, unsigned int) noexcept {
+	free(ptr);
+}
+void operator delete(void* ptr) noexcept {
+	free(ptr);
+}
 
 
 
+extern "C" void __cxa_pure_virtual() {
+	while (1);  // Infinite loop to prevent unexpected behavior
+}
 
 
 

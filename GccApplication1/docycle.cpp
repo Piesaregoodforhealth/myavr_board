@@ -26,7 +26,7 @@ DoCycle::DoCycle(uint8_t input_pin, volatile uint8_t &output_port, uint8_t outpu
 	mcycle_duration(cycle_duration) 
 {}
 	
-DoCycle::~DoCycle(){}
+
 	
 void DoCycle::doExec(int cycle_counter) {
 /*	uint16_t adc_value = ADC_Read(minput_pin);

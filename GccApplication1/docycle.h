@@ -7,7 +7,7 @@
 class DoCycle : public IExecutable {
 	public:
 	DoCycle(uint8_t input_pin, volatile uint8_t &output_port, uint8_t output_pin, int cycle_duration);
-	~DoCycle();
+	//~DoCycle() throw();
 	void doExec(int cycle_counter) override;
 
 	private:
