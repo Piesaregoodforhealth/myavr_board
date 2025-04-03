@@ -17,6 +17,9 @@ void operator delete(void* ptr) noexcept {
 
 
 
+extern "C" void __cxa_pure_virtual() {
+	while (1);  // Infinite loop to prevent unexpected behavior
+}
 
 extern "C" void __cxa_pure_virtual() {
 	while (1);  // Infinite loop to prevent unexpected behavior
