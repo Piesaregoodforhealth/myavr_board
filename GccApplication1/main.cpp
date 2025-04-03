@@ -2,14 +2,25 @@
 #include <avr\io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include <stdlib.h>
 #include "docycle.h"
 #include "IExecutable.h"
 
 
 
+void operator delete(void* ptr, unsigned int) noexcept {
+	free(ptr);
+}
+void operator delete(void* ptr) noexcept {
+	free(ptr);
+}
 
 
 
+
+extern "C" void __cxa_pure_virtual() {
+	while (1);  // Infinite loop to prevent unexpected behavior
+}
 
 
 
@@ -50,9 +61,8 @@ void sharetime(uint8_t cycletime, uint16_t adcvalue, uint8_t channel ) {
 
 
 int main(void) {
-	
-	DDRB |= (1 << PB0); 
-	DDRF &= ~(1 << PF0); 
+	DDRB |= (1 << PB0);
+	DDRF &= ~(1 << PF0);
 	DDRB |= (1 << PB1);
 	DDRF &= ~(1 << PF1);
 	DDRB |= (1 << PB2);
@@ -61,25 +71,23 @@ int main(void) {
 	ADMUX = (1 << REFS0);
 	ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
 
-	DoCycle mycycle(PF0, PORTB,PINB0,20);
+	// Correct way: instantiate objects
+	DoCycle mycycle0(PF0, PORTB, PB0, 20);
+	DoCycle mycycle1(PF1, PORTB, PB1, 20);
+	DoCycle mycycle2(PF2, PORTB, PB2, 20);
 
-//myCycle(PF0, PORTB,PINB0,20);
-//myCycle(PF1, PORTB,PINB1,20);
-//myCycle(PF2, PORTB,PINB2,20);
 	while (1) {
 		_delay_ms(1);
-	cycle_counter++;
-//myCycle.doExec(cycle_counter);
-//myCycle.doExec(cycle_counter);
-//myCycle.doExec(cycle_counter);
+		cycle_counter++;
+		mycycle0.doExec(cycle_counter);
+		mycycle1.doExec(cycle_counter);
+		mycycle2.doExec(cycle_counter);
+	}
 
-	};
-		
-		
-		
-		//sharetime(20, ADC_Read(PF0),0 );
 	return 0;
-};
+}
+
+//timer atmega почитать + сделать таймер с базером
 
 
 

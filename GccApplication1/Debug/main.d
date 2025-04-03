@@ -15,6 +15,8 @@ main.d main.o: .././main.cpp \
  d:\microship\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  d:\microship\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  d:\microship\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
+ d:\microship\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
+ d:\microship\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  .././docycle.h .././IExecutable.h
 
 d:\microship\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
@@ -48,6 +50,10 @@ d:\microship\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 d:\microship\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
 d:\microship\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
+
+d:\microship\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
+
+d:\microship\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
 .././docycle.h:
 
